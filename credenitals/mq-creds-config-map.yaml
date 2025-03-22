@@ -1,0 +1,42 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mqwebuserconfigmap
+  namespace: integration
+  uid: 20bb4081-e8aa-4f9a-90cc-08c690dd5546
+  resourceVersion: '21275592'
+  creationTimestamp: '2025-03-19T16:02:34Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2025-03-19T16:02:34Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:mqwebuser.xml': {}
+data:
+  mqwebuser.xml: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <server>
+      <featureManager>
+        <feature>appSecurity-2.0</feature>
+        <feature>basicAuthenticationMQ-1.0</feature>
+      </featureManager>
+      <enterpriseApplication id="com.ibm.mq.console">
+        <application-bnd>
+          <security-role name="MQWebAdmin">
+            <group name="MQWebAdminGroup" realm="defaultRealm"/>
+          </security-role>
+        </application-bnd>
+      </enterpriseApplication>
+      <basicRegistry id="basic" realm="defaultRealm">
+        <user name="admin" password="admin"/>
+        <group name="MQWebAdminGroup">
+          <member name="admin"/>
+        </group>
+      </basicRegistry>           
+      <sslDefault sslRef="mqDefaultSSLConfig"/>
+    </server>
+

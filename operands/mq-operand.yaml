@@ -1,0 +1,135 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  annotations:
+    com.ibm.mq/write-defaults-spec: 'false'
+  resourceVersion: '21264961'
+  name: mq
+  uid: b27c1071-4866-40c5-802c-81d4924e9fac
+  creationTimestamp: '2025-03-19T15:47:11Z'
+  generation: 1
+  managedFields:
+    - apiVersion: mq.ibm.com/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:com.ibm.mq/write-defaults-spec': {}
+        'f:spec':
+          .: {}
+          'f:license':
+            .: {}
+            'f:accept': {}
+            'f:license': {}
+            'f:use': {}
+          'f:queueManager':
+            .: {}
+            'f:availability':
+              .: {}
+              'f:type': {}
+            'f:storage':
+              .: {}
+              'f:defaultClass': {}
+              'f:queueManager':
+                .: {}
+                'f:type': {}
+          'f:version': {}
+          'f:web':
+            .: {}
+            'f:enabled': {}
+      manager: Mozilla
+      operation: Update
+      time: '2025-03-19T15:47:11Z'
+    - apiVersion: mq.ibm.com/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"finalizer.queuemanagers.mq.ibm.com"': {}
+      manager: manager
+      operation: Update
+      time: '2025-03-19T15:47:12Z'
+    - apiVersion: mq.ibm.com/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:adminUiUrl': {}
+          'f:conditions': {}
+          'f:endpoints': {}
+          'f:name': {}
+          'f:phase': {}
+          'f:versions':
+            .: {}
+            'f:available':
+              .: {}
+              'f:channels': {}
+              'f:versions': {}
+            'f:reconciled': {}
+      manager: manager
+      operation: Update
+      subresource: status
+      time: '2025-03-19T15:47:18Z'
+  namespace: integration
+  finalizers:
+    - finalizer.queuemanagers.mq.ibm.com
+spec:
+  license:
+    accept: true
+    license: L-NUUP-23NH8Y
+    use: Production
+  queueManager:
+    availability:
+      type: NativeHA
+    storage:
+      defaultClass: ocs-storagecluster-ceph-rbd
+      queueManager:
+        type: persistent-claim
+  version: 9.4.2.0-r1
+  web:
+    enabled: true
+status:
+  adminUiUrl: 'https://mq-ibm-mq-web-integration.apps.ocp18.tec.cz.ibm.com/ibmmq/console/'
+  conditions:
+    - lastTransitionTime: '2025-03-19T15:47:18Z'
+      message: 'Pod for MQ Queue Manager is being deployed [mq-ibm-mq-0]'
+      reason: PodPending
+      status: 'True'
+      type: Pending
+    - lastTransitionTime: '2025-03-19T15:47:12Z'
+      message: MQ Queue Manager is being deployed
+      reason: Creating
+      status: 'True'
+      type: Pending
+  endpoints:
+    - name: ui
+      type: UI
+      uri: 'https://mq-ibm-mq-web-integration.apps.ocp18.tec.cz.ibm.com/ibmmq/console/'
+  name: mq
+  phase: Pending
+  versions:
+    available:
+      channels: []
+      versions:
+        - licenses:
+            - displayName: IBM Cloud Pak for Integration 16.1.1
+              link: 'https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-QYVA-B365MB'
+              name: L-QYVA-B365MB
+            - displayName: IBM Cloud Pak for Integration Limited Edition 16.1.1
+              link: 'https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-JVML-UFQVM4'
+              name: L-JVML-UFQVM4
+            - displayName: IBM MQ Advanced 9.4 - 02/2025
+              link: 'https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-NUUP-23NH8Y'
+              matchesCurrentType: true
+              name: L-NUUP-23NH8Y
+            - displayName: IBM MQ Advanced for Non-Production Environment 9.4 - 02/2025
+              link: 'https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-QWBN-T3PKLE'
+              name: L-QWBN-T3PKLE
+            - displayName: IBM MQ Advanced for Developers (Non-Warranted) 9.4 – 10/2024
+              link: 'https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-HYGL-6STWD6'
+              name: L-HYGL-6STWD6
+          name: 9.4.2.0-r1
+    reconciled: 9.4.2.0-r1
+
